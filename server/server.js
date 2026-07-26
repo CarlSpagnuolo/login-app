@@ -1,8 +1,9 @@
 const express = require("express");
 const pool = require("./database/db");
-
+const cors = require("cors");
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 const PORT = 3001;
