@@ -46,3 +46,21 @@ export async function loginUser(email: string, password: string) {
 
   return data;
 }
+
+export async function getProfile() {
+  const token = localStorage.getItem("token");
+
+  const response = await fetch(`${API_URL}/profile`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.error);
+  }
+
+  return data;
+}

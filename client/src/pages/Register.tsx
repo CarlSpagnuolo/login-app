@@ -20,12 +20,33 @@ function Register() {
       setError("Compila tutti i campi");
       return;
     }
+    if (username.trim().length < 3) {
+      setError("Lo username deve contenere almeno 3 caratteri");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email)) {
+      setError("Inserisci un'email valida");
+      return;
+    }
+
+    const passwordRegex = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
+
+    if (!passwordRegex.test(password)) {
+      setError(
+        "La password deve contenere almeno 8 caratteri, una lettera maiuscola e un numero",
+      );
+      return;
+    }
     setLoading(true);
 
     try {
       const result = await registerUser(username, email, password);
 
       localStorage.setItem("user", JSON.stringify(result.user));
+      localStorage.setItem("token", result.token);
 
       localStorage.setItem(
         "welcomeMessage",

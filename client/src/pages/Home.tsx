@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { getProfile } from "../services/authService";
 
 type User = {
   id: number;
@@ -9,38 +10,53 @@ type User = {
 
 function Home() {
   const [user, setUser] = useState<User | null>(null);
-  const [welcomeMessage, setWelcomeMessage] = useState("");
-
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const savedUser = localStorage.getItem("user");
-    const savedMessage = localStorage.getItem("welcomeMessage");
+    async function loadProfile() {
+      const token = localStorage.getItem("token");
 
-    if (!savedUser) {
-      navigate("/login");
-      return;
+      if (!token) {
+        navigate("/login");
+        return;
+      }
+
+      try {
+        const profile = await getProfile();
+        setUser(profile);
+      } catch {
+        localStorage.removeItem("token");
+
+        navigate("/login");
+      } finally {
+        setLoading(false);
+      }
     }
 
-    setUser(JSON.parse(savedUser));
-
-    if (savedMessage) {
-      setWelcomeMessage(savedMessage);
-      localStorage.removeItem("welcomeMessage");
-    }
+    loadProfile();
   }, [navigate]);
-
   function handleLogout() {
-    localStorage.removeItem("user");
+    localStorage.removeItem("token");
 
     navigate("/login");
+  }
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        <p className="text-lg font-medium">Caricamento...</p>
+      </div>
+    );
   }
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-xl shadow-md w-96 text-center">
-        {welcomeMessage && (
-          <h1 className="text-3xl font-bold mb-4">{welcomeMessage}</h1>
+        {user && (
+          <h1 className="text-3xl font-bold mb-4">
+            Bentornato {user.username}!
+          </h1>
         )}
 
         <p className="text-gray-700 mb-2">

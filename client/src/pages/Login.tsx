@@ -19,6 +19,7 @@ function Login() {
       const result = await loginUser(email, password);
 
       localStorage.setItem("user", JSON.stringify(result.user));
+      localStorage.setItem("token", result.token);
 
       localStorage.setItem(
         "welcomeMessage",
