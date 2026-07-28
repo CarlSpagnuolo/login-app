@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { loginUser } from "../services/authService";
 import { useNavigate, Link } from "react-router-dom";
+import CyberBackground from "../components/CyberBackground";
+import AudioToggle from "../components/AudioToggle";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -39,48 +41,98 @@ function Login() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white p-8 rounded-xl shadow-md w-96"
-      >
-        <h1 className="text-3xl font-bold mb-6">Login</h1>
-        {error && <p className="text-red-600 mb-4">{error}</p>}
-
-        <input
-          type="email"
-          placeholder="Email"
-          className="border p-2 w-full mb-4"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-
-        <input
-          type="password"
-          placeholder="Password"
-          className="border p-2 w-full mb-4"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-
-        <button
-          type="submit"
-          disabled={loading}
-          className="bg-blue-600 text-white p-2 rounded w-full cursor-pointer hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed"
+    <CyberBackground>
+      <div className="min-h-screen flex items-center justify-center">
+        <form
+          onSubmit={handleSubmit}
+          className="
+ relative
+max-w-xl
+text-center
+bg-[#050816]/85
+backdrop-blur-md
+border
+border-cyan-600/30
+rounded-2xl
+p-10
+shadow-[0_0_70px_rgba(0,245,255,0.08),0_0_90px_rgba(236,72,153,0.08)]
+animate-[slideUp_0.8s_ease-out_0.8s_forwards]
+opacity-0
+before:absolute
+before:inset-0
+before:rounded-2xl
+before:bg-linear-to-r
+before:from-cyan-400/5
+before:via-transparent
+before:to-fuchsia-500/5
+before:pointer-events-none
+  "
         >
-          {loading ? "Accesso..." : "Login"}
-        </button>
-        <p className="mt-4 text-sm text-center text-gray-600">
-          Non hai un account?{" "}
-          <Link
-            to="/register"
-            className="text-blue-600 font-medium hover:underline"
+          <AudioToggle />
+          <h1
+            className="
+                text-3xl
+                font-bold
+                mb-6
+                bg-linear-to-r
+                from-cyan-400
+                to-purple-500
+                bg-clip-text
+                text-transparent
+              "
           >
-            Registrati
-          </Link>
-        </p>
-      </form>
-    </div>
+            Login
+          </h1>
+          {error && <p className="text-red-600 mb-4">{error}</p>}
+
+          <input
+            type="email"
+            placeholder="Email"
+            className="border p-2 w-full mb-4 text-cyan-600"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+
+          <input
+            type="password"
+            placeholder="Password"
+            className="border p-2 w-full mb-4  text-cyan-600"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="
+                  px-6
+                  py-3
+                  rounded-lg
+                  bg-cyan-500/10
+                  border
+                  border-cyan-400/40
+                  text-cyan-300
+                  hover:bg-cyan-400/20
+                  transition
+                  duration-300
+                 disabled:bg-gray-600
+                  disabled:cursor-not-allowed
+                  cursor cursor-pointer"
+          >
+            {loading ? "Accesso..." : "Login"}
+          </button>
+          <p className="mt-4 text-sm text-center text-gray-500">
+            Non hai un account?{" "}
+            <Link
+              to="/register"
+              className="text-purple-400/90 hover:underline font-medium"
+            >
+              Registrati
+            </Link>
+          </p>
+        </form>
+      </div>
+    </CyberBackground>
   );
 }
 
