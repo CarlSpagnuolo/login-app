@@ -62,7 +62,7 @@ function Home() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
-        <p className="text-lg font-medium">Caricamento...</p>
+        <p className="text-lg font-medium">Loading...</p>
       </div>
     );
   }
@@ -109,7 +109,7 @@ function Home() {
                 text-transparent
               "
             >
-              {welcomeMessage || `Bentornato ${user?.username}!`}
+              {welcomeMessage || `Welcome back ${user?.username}!`}
             </h1>
           )}
 

@@ -25,7 +25,7 @@ function Login() {
 
       localStorage.setItem(
         "welcomeMessage",
-        `Bentornato ${result.user.username}!`,
+        `Welcome back ${result.user.username}!`,
       );
 
       setEmail("");
@@ -119,15 +119,15 @@ before:pointer-events-none
                   disabled:cursor-not-allowed
                   cursor cursor-pointer"
           >
-            {loading ? "Accesso..." : "Login"}
+            {loading ? "Logging in..." : "Sign in"}
           </button>
           <p className="mt-4 text-sm text-center text-gray-500">
-            Non hai un account?{" "}
+            Don't have an account?{" "}
             <Link
               to="/register"
               className="text-purple-400/90 hover:underline font-medium"
             >
-              Registrati
+              Register
             </Link>
           </p>
         </form>

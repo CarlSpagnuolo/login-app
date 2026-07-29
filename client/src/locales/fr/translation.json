@@ -1,0 +1,9 @@
+{
+  "landing": {
+    "subtitle": "Parcours Full Stack",
+    "title": "Mon premier pas vers le backend",
+    "description": "Un projet né de la curiosité, de l'apprentissage et de l'expérimentation.\nExplorer le lien entre l'interface, la logique et les données.",
+    "login": "Connexion",
+    "register": "S'inscrire"
+  }
+}

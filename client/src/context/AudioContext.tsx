@@ -1,9 +1,16 @@
-import { createContext, useContext, useRef, useState } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useRef,
+  useState,
+} from "react";
 
 type AudioContextType = {
   enabled: boolean;
   startAudio: () => void;
   toggleAudio: () => void;
+  stopAudio: () => void;
 };
 
 const AudioContext = createContext<AudioContextType | null>(null);
@@ -13,7 +20,7 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
 
   const [enabled, setEnabled] = useState(false);
 
-  function startAudio() {
+  const startAudio = useCallback(() => {
     const audio = audioRef.current;
 
     if (!audio) return;
@@ -28,9 +35,9 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
       .catch(() => {
         console.log("Audio blocked");
       });
-  }
+  }, []);
 
-  function toggleAudio() {
+  const toggleAudio = useCallback(() => {
     const audio = audioRef.current;
 
     if (!audio) return;
@@ -42,7 +49,17 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
       audio.pause();
       setEnabled(false);
     }
-  }
+  }, []);
+
+  const stopAudio = useCallback(() => {
+    const audio = audioRef.current;
+
+    if (!audio) return;
+
+    audio.pause();
+    audio.currentTime = 0;
+    setEnabled(false);
+  }, []);
 
   return (
     <AudioContext.Provider
@@ -50,6 +67,7 @@ export function AudioProvider({ children }: { children: React.ReactNode }) {
         enabled,
         startAudio,
         toggleAudio,
+        stopAudio,
       }}
     >
       <audio ref={audioRef} src="/ambient.mp3" loop />

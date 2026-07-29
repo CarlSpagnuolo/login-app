@@ -56,8 +56,9 @@ function BootSequence({ onComplete }: BootSequenceProps) {
     <div
       className={`
         font-mono
-        text-sm
-        text-cyan-300/80
+        text-xm
+        text-cyan-300/70
+       
         tracking-wider
         leading-relaxed
         transition-all
@@ -70,7 +71,7 @@ function BootSequence({ onComplete }: BootSequenceProps) {
           key={index}
           className={
             line === "system ready"
-              ? "text-center mt-4 text-cyan-300 text-transform: uppercase font-bold drop-shadow-[0_0_10px_rgba(10,211,238,0.10)]"
+              ? "text-center mt-4 text-cyan-300/80 text-transform: uppercase font-bold drop-shadow-[0_0_10px_rgba(10,211,238,0.10)]"
               : ""
           }
         >

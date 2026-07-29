@@ -5,7 +5,7 @@ const particles = Array.from({ length: 18 }).map((_, index) => ({
   left: Math.random() * 100,
   top: Math.random() * 100,
   delay: index * 0.7,
-  size: Math.random() * 3 + 1,
+  size: Math.random() * 14 + 1,
 }));
 
 function CyberBackground({ children }: { children: React.ReactNode }) {
@@ -82,7 +82,7 @@ function CyberBackground({ children }: { children: React.ReactNode }) {
             width: `${particle.size}px`,
             height: `${particle.size}px`,
             animationDelay: `${particle.delay}s`,
-            opacity: particle.size / 4,
+            opacity: particle.size / 10,
           }}
         />
       ))}

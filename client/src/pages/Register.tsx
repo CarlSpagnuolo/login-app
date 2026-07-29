@@ -52,7 +52,7 @@ function Register() {
 
       localStorage.setItem(
         "welcomeMessage",
-        `Benvenuto ${result.user.username}!`,
+        `Welcome ${result.user.username}!`,
       );
 
       navigate("/home");
@@ -106,7 +106,7 @@ before:pointer-events-none
                 text-transparent
               "
           >
-            Registrati
+            Register
           </h1>
           {error && <p className="text-red-600 mb-4">{error}</p>}
 
@@ -152,11 +152,11 @@ before:pointer-events-none
                   disabled:cursor-not-allowed
                   cursor cursor-pointer"
           >
-            {loading ? "Registrazione..." : "Registrati"}
+            {loading ? "Registration..." : "Sign up"}
           </button>
 
           <p className="mt-4 text-sm text-center text-gray-500">
-            Hai già un account?{" "}
+            Already have an account?{" "}
             <Link
               to="/login"
               className="text-purple-400/90 hover:underline font-medium"
