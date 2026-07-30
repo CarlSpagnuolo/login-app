@@ -4,15 +4,16 @@ import { useNavigate, Link } from "react-router-dom";
 import CyberBackground from "../components/CyberBackground";
 import AudioToggle from "../components/AudioToggle";
 import HomeToggle from "../components/HomeToggle";
+import { useTranslation } from "react-i18next";
 
 function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -20,27 +21,25 @@ function Register() {
     setError("");
 
     if (!username || !email || !password) {
-      setError("Compila tutti i campi");
+      setError(t("register.errors.fillFields"));
       return;
     }
     if (username.trim().length < 3) {
-      setError("Lo username deve contenere almeno 3 caratteri");
+      setError(t("register.errors.usernameLength"));
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailRegex.test(email)) {
-      setError("Inserisci un'email valida");
+      setError(t("register.errors.invalidEmail"));
       return;
     }
 
     const passwordRegex = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
 
     if (!passwordRegex.test(password)) {
-      setError(
-        "La password deve contenere almeno 8 caratteri, una lettera maiuscola e un numero",
-      );
+      setError(t("register.errors.invalidPassword"));
       return;
     }
     setLoading(true);
@@ -53,7 +52,9 @@ function Register() {
 
       localStorage.setItem(
         "welcomeMessage",
-        `Welcome ${result.user.username}!`,
+        t("register.welcomeMessage", {
+          username: result.user.username,
+        }),
       );
 
       navigate("/home");
@@ -108,13 +109,13 @@ before:pointer-events-none
                 text-transparent
               "
           >
-            Register
+            {t("register.title")}
           </h1>
           {error && <p className="text-red-600 mb-4">{error}</p>}
 
           <input
             type="text"
-            placeholder="Username"
+            placeholder={t("register.username")}
             className="border p-2 w-full mb-4 text-cyan-600"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -122,7 +123,7 @@ before:pointer-events-none
 
           <input
             type="email"
-            placeholder="Email"
+            placeholder={t("register.email")}
             className="border p-2 w-full mb-4 text-cyan-600"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -130,7 +131,7 @@ before:pointer-events-none
 
           <input
             type="password"
-            placeholder="Password"
+            placeholder={t("register.password")}
             className="border p-2 w-full mb-4 text-cyan-600"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -154,16 +155,16 @@ before:pointer-events-none
                   disabled:cursor-not-allowed
                   cursor cursor-pointer"
           >
-            {loading ? "Registration..." : "Sign up"}
+            {loading ? t("register.loading") : t("register.signUp")}
           </button>
 
           <p className="mt-4 text-sm text-center text-gray-500">
-            Already have an account?{" "}
+            {t("register.yesAccount")}{" "}
             <Link
               to="/login"
               className="text-purple-400/90 hover:underline font-medium"
             >
-              Login
+              {t("register.login")}
             </Link>
           </p>
         </form>

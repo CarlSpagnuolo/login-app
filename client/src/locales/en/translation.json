@@ -5,5 +5,43 @@
     "description": "A project born from curiosity, learning and experimentation.\nExploring the connection between interface, logic and data.",
     "login": "Login",
     "register": "Register"
+  },
+  "login": {
+    "title": "Login",
+    "email": "Email",
+    "password": "Password",
+    "loading": "Logging in...",
+    "signIn": "Sign in",
+    "noAccount": "Don't have an account?",
+    "register": "Register",
+    "welcomeBackMessage": "Welcome back {{username}}!"
+  },
+  "register": {
+    "title": "Register",
+    "username": "Username",
+    "email": "Email",
+    "password": "Password",
+    "loading": "Creating account...",
+    "signUp": "Sign up",
+    "yesAccount": "Already have an account?",
+    "login": "Login",
+    "welcomeMessage": "Welcome {{username}}!",
+    "errors": {
+      "fillFields": "Fill in all fields",
+      "usernameLength": "The username must contain at least 3 characters",
+      "invalidEmail": "Enter a valid email address",
+      "invalidPassword": "The password must contain at least 8 characters, one uppercase letter, and one number"
+    }
+  },
+
+  "common": {
+    "loading": "Loading..."
+  },
+  "home": {
+    "welcomeBack": "Welcome back {{username}}!",
+    "username": "Username",
+    "email": "Email",
+    "buttonHome": "Home",
+    "logout": "Logout"
   }
 }

@@ -1,9 +1,47 @@
 {
   "landing": {
-    "subtitle": "Viaje Full Stack",
-    "title": "Mi primer paso en el backend",
-    "description": "Un proyecto nacido de la curiosidad, el aprendizaje y la experimentación.\nExplorando la conexión entre la interfaz, la lógica y los datos.",
+    "subtitle": "Trayectoria Full Stack",
+    "title": "Mi primer paso en el desarrollo backend",
+    "description": "Un proyecto nacido de la curiosidad, el estudio y la experimentación.\nExplorando la conexión entre la interfaz, la lógica y los datos.",
     "login": "Iniciar sesión",
     "register": "Registrarse"
+  },
+  "login": {
+    "title": "Iniciar sesión",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "loading": "Iniciando sesión...",
+    "signIn": "Entrar",
+    "noAccount": "¿No tienes una cuenta?",
+    "register": "Registrarse",
+    "welcomeBackMessage": "¡Bienvenido de nuevo {{username}}!"
+  },
+  "register": {
+    "title": "Registrarse",
+    "username": "Nombre de usuario",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "loading": "Creando cuenta...",
+    "signUp": "Registrarse",
+    "yesAccount": "¿Ya tienes una cuenta?",
+    "login": "Iniciar sesión",
+    "welcomeMessage": "¡Bienvenido {{username}}!"
+  },
+
+  "common": {
+    "loading": "Cargando..."
+  },
+  "home": {
+    "welcomeBack": "¡Bienvenido de nuevo {{username}}!",
+    "username": "Usuario",
+    "email": "Correo electrónico",
+    "buttonHome": "Inicio",
+    "logout": "Cerrar sesión"
+  },
+  "errors": {
+    "fillFields": "Completa todos los campos",
+    "usernameLength": "El nombre de usuario debe contener al menos 3 caracteres",
+    "invalidEmail": "Introduce un correo electrónico válido",
+    "invalidPassword": "La contraseña debe contener al menos 8 caracteres, una letra mayúscula y un número"
   }
 }

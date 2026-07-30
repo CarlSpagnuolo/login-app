@@ -71,7 +71,7 @@ function BootSequence({ onComplete }: BootSequenceProps) {
           key={index}
           className={
             line === "system ready"
-              ? "text-center text-sm mt-2 text-emerald-500/90 text-transform: uppercase font-bold drop-shadow-[0_0_10px_rgba(10,211,238,0.10)]"
+              ? "text-center text-base mt-2 text-emerald-600/90 text-transform: uppercase font-bold drop-shadow-[0_0_10px_rgba(10,211,238,0.10)]"
               : ""
           }
         >

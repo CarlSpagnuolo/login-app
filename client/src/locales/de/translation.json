@@ -1,9 +1,47 @@
 {
   "landing": {
     "subtitle": "Full-Stack-Reise",
-    "title": "Mein erster Schritt ins Backend",
-    "description": "Ein Projekt, das aus Neugier, Lernen und Experimentieren entstanden ist.\nDie Verbindung zwischen Benutzeroberfläche, Logik und Daten erkunden.",
+    "title": "Mein erster Schritt in die Backend-Entwicklung",
+    "description": "Ein Projekt, das aus Neugier, Lernen und Experimentieren entstanden ist.\nDie Verbindung zwischen Benutzeroberfläche, Logik und Daten erforschen.",
     "login": "Anmelden",
     "register": "Registrieren"
+  },
+  "login": {
+    "title": "Anmelden",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "loading": "Anmeldung läuft...",
+    "signIn": "Anmelden",
+    "noAccount": "Noch kein Konto?",
+    "register": "Registrieren",
+    "welcomeBackMessage": "Willcommen zurück {{username}}!"
+  },
+  "register": {
+    "title": "Registrieren",
+    "username": "Benutzername",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "loading": "Konto wird erstellt...",
+    "signUp": "Registrieren",
+    "yesAccount": "Sie haben bereits ein Konto?",
+    "login": "Anmelden",
+    "welcomeMessage": "Willcommen {{username}}!"
+  },
+
+  "common": {
+    "loading": "Laden..."
+  },
+  "home": {
+    "welcomeBack": "Willkommen zurück {{username}}!",
+    "username": "Benutzername",
+    "email": "E-Mail",
+    "buttonHome": "Startseite",
+    "logout": "Abmelden"
+  },
+  "errors": {
+    "fillFields": "Bitte füllen Sie alle Felder aus",
+    "usernameLength": "Der Benutzername muss mindestens 3 Zeichen enthalten",
+    "invalidEmail": "Geben Sie eine gültige E-Mail-Adresse ein",
+    "invalidPassword": "Das Passwort muss mindestens 8 Zeichen, einen Großbuchstaben und eine Zahl enthalten"
   }
 }

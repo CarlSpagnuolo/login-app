@@ -4,6 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import CyberBackground from "../components/CyberBackground";
 import AudioToggle from "../components/AudioToggle";
 import HomeToggle from "../components/HomeToggle";
+import { useTranslation } from "react-i18next";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -11,6 +12,7 @@ function Login() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -26,7 +28,9 @@ function Login() {
 
       localStorage.setItem(
         "welcomeMessage",
-        `Welcome back ${result.user.username}!`,
+        t("login.welcomeBackMessage", {
+          username: result.user.username,
+        }),
       );
 
       setEmail("");
@@ -83,13 +87,13 @@ before:pointer-events-none
                 text-transparent
               "
           >
-            Login
+            {t("login.title")}
           </h1>
           {error && <p className="text-red-600 mb-4">{error}</p>}
 
           <input
             type="email"
-            placeholder="Email"
+            placeholder={t("login.email")}
             className="border p-2 w-full mb-4 text-cyan-600"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -97,7 +101,7 @@ before:pointer-events-none
 
           <input
             type="password"
-            placeholder="Password"
+            placeholder={t("login.password")}
             className="border p-2 w-full mb-4  text-cyan-600"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -121,15 +125,15 @@ before:pointer-events-none
                   disabled:cursor-not-allowed
                   cursor cursor-pointer"
           >
-            {loading ? "Logging in..." : "Sign in"}
+            {loading ? t("login.loading") : t("login.signIn")}
           </button>
           <p className="mt-4 text-sm text-center text-gray-500">
-            Don't have an account?{" "}
+            {t("login.noAccount")}{" "}
             <Link
               to="/register"
               className="text-purple-400/90 hover:underline font-medium"
             >
-              Register
+              {t("login.register")}
             </Link>
           </p>
         </form>

@@ -1,9 +1,47 @@
 {
   "landing": {
     "subtitle": "Parcours Full Stack",
-    "title": "Mon premier pas vers le backend",
-    "description": "Un projet né de la curiosité, de l'apprentissage et de l'expérimentation.\nExplorer le lien entre l'interface, la logique et les données.",
-    "login": "Connexion",
+    "title": "Mon premier pas vers le développement backend",
+    "description": "Un projet né de la curiosité, de l'étude et de l'expérimentation.\nExplorer le lien entre l'interface, la logique et les données.",
+    "login": "Se connecter",
     "register": "S'inscrire"
+  },
+  "login": {
+    "title": "Se connecter",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "loading": "Connexion en cours...",
+    "signIn": "Connexion",
+    "noAccount": "Vous n'avez pas de compte ?",
+    "register": "S'inscrire",
+    "welcomeBackMessage": "Bon retour {{username}}!"
+  },
+  "register": {
+    "title": "S'inscrire",
+    "username": "Nom d'utilisateur",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "loading": "Création du compte...",
+    "signUp": "S'inscrire",
+    "yesAccount": "Vous avez déjà un compte ?",
+    "login": "Se connecter",
+    "welcomeMessage": "Bienvenue {{username}}!"
+  },
+
+  "common": {
+    "loading": "Chargement..."
+  },
+  "home": {
+    "welcomeBack": "Bon retour {{username}} !",
+    "username": "Nom d'utilisateur",
+    "email": "Email",
+    "buttonHome": "Accueil",
+    "logout": "Déconnexion"
+  },
+  "errors": {
+    "fillFields": "Remplissez tous les champs",
+    "usernameLength": "Le nom d'utilisateur doit contenir au moins 3 caractères",
+    "invalidEmail": "Entrez une adresse e-mail valide",
+    "invalidPassword": "Le mot de passe doit contenir au moins 8 caractères, une lettre majuscule et un chiffre"
   }
 }

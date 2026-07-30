@@ -5,5 +5,43 @@
     "description": "Un progetto nato dalla curiosità, dallo studio e dalla sperimentazione.\nEsplorando la connessione tra interfaccia, logica e dati.",
     "login": "Accedi",
     "register": "Registrati"
+  },
+  "login": {
+    "title": "Accedi",
+    "email": "Email",
+    "password": "Password",
+    "loading": "Accesso in corso...",
+    "signIn": "Accedi",
+    "noAccount": "Non hai un account?",
+    "register": "Registrati",
+    "welcomeBackMessage": "Bentornato {{username}}!"
+  },
+  "register": {
+    "title": "Registrati",
+    "username": "Nome utente",
+    "email": "Email",
+    "password": "Password",
+    "loading": "Registrazione in corso...",
+    "signUp": "Registrati",
+    "yesAccount": "Hai già un account?",
+    "login": "Login",
+    "welcomeMessage": "Benvenuto {{username}}!"
+  },
+
+  "common": {
+    "loading": "Caricamento..."
+  },
+  "home": {
+    "welcomeBack": "Bentornato {{username}}!",
+    "username": "Username",
+    "email": "Email",
+    "buttonHome": "Home",
+    "logout": "Esci"
+  },
+  "errors": {
+    "fillFields": "Compila tutti i campi",
+    "usernameLength": "Lo username deve contenere almeno 3 caratteri",
+    "invalidEmail": "Inserisci un'email valida",
+    "invalidPassword": "La password deve contenere almeno 8 caratteri, una lettera maiuscola e un numero"
   }
 }

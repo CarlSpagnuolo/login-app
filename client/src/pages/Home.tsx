@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { getProfile } from "../services/authService";
 import CyberBackground from "../components/CyberBackground";
 import AudioToggle from "../components/AudioToggle";
+import { useTranslation } from "react-i18next";
 
 type User = {
   id: number;
@@ -15,6 +16,7 @@ function Home() {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const [welcomeMessage, setWelcomeMessage] = useState("");
+  const { t } = useTranslation();
 
   useEffect(() => {
     async function loadProfile() {
@@ -62,7 +64,7 @@ function Home() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
-        <p className="text-lg font-medium">Loading...</p>
+        <p className="text-lg font-medium">{t("common.loading")}</p>
       </div>
     );
   }
@@ -109,16 +111,19 @@ function Home() {
                 text-transparent
               "
             >
-              {welcomeMessage || `Welcome back ${user?.username}!`}
+              {welcomeMessage ||
+                t("home.welcomeBack", {
+                  username: user.username,
+                })}
             </h1>
           )}
 
           <p className="text-cyan-600 mb-2">
-            <strong>Username:</strong> {user?.username}
+            <strong>{t("home.username")}:</strong> {user?.username}
           </p>
 
           <p className="text-cyan-600 mb-6">
-            <strong>Email:</strong> {user?.email}
+            <strong>{t("home.email")}:</strong> {user?.email}
           </p>
           <div className="flex gap-4 justify-center">
             <button
@@ -136,7 +141,7 @@ function Home() {
                   cursor cursor-pointer
                 "
             >
-              Home
+              {t("home.buttonHome")}
             </button>
             <button
               onClick={handleLogout}
@@ -153,7 +158,7 @@ function Home() {
                   cursor cursor-pointer
                 "
             >
-              Logout
+              {t("home.logout")}
             </button>
           </div>
         </div>
