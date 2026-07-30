@@ -5,7 +5,7 @@ function verifyToken(req, res, next) {
 
   if (!authHeader) {
     return res.status(401).json({
-      error: "Token mancante",
+      error: "Missing token",
     });
   }
 
@@ -19,7 +19,7 @@ function verifyToken(req, res, next) {
     next();
   } catch (error) {
     return res.status(401).json({
-      error: "Token non valido",
+      error: "Invalid token",
     });
   }
 }

@@ -14,26 +14,26 @@ router.post("/register", async (req, res) => {
 
     if (!username || !email || !password) {
       return res.status(400).json({
-        error: "Compila tutti i campi",
+        error: "Fill in all fields",
       });
     }
 
     if (username.trim().length < 3) {
       return res.status(400).json({
-        error: "Lo username deve contenere almeno 3 caratteri",
+        error: "Username must contain at least 3 characters",
       });
     }
 
     if (!emailRegex.test(email)) {
       return res.status(400).json({
-        error: "Inserisci un'email valida",
+        error: "Enter a valid email address",
       });
     }
 
     if (!passwordRegex.test(password)) {
       return res.status(400).json({
         error:
-          "La password deve contenere almeno 8 caratteri, una lettera maiuscola e un numero",
+          "Password must contain at least 8 characters, one uppercase letter and one number",
       });
     }
 
@@ -57,7 +57,7 @@ router.post("/register", async (req, res) => {
     );
 
     res.json({
-      message: "Utente creato con successo",
+      message: "User created successfully",
       token,
       user: {
         id: user.id,
@@ -70,12 +70,12 @@ router.post("/register", async (req, res) => {
 
     if (error.code === "23505") {
       return res.status(400).json({
-        error: "Email già registrata",
+        error: "Email already registered",
       });
     }
 
     res.status(500).json({
-      error: "Errore registrazione",
+      error: "Registration error",
     });
   }
 });
@@ -85,7 +85,7 @@ router.post("/login", async (req, res) => {
     const { email, password } = req.body;
     if (!email || !password) {
       return res.status(400).json({
-        error: "Inserisci email e password",
+        error: "Enter email and password",
       });
     }
 
@@ -95,7 +95,7 @@ router.post("/login", async (req, res) => {
 
     if (result.rows.length === 0) {
       return res.status(400).json({
-        error: "Email o password non corretta",
+        error: "Incorrect email or password",
       });
     }
 
@@ -105,7 +105,7 @@ router.post("/login", async (req, res) => {
 
     if (!passwordMatch) {
       return res.status(400).json({
-        error: "Email o password non corretta",
+        error: "Incorrect email or password",
       });
     }
     const token = jwt.sign(
@@ -120,7 +120,7 @@ router.post("/login", async (req, res) => {
     );
 
     res.json({
-      message: "Login riuscito",
+      message: "Login successful",
       token,
       user: {
         id: user.id,
@@ -132,7 +132,7 @@ router.post("/login", async (req, res) => {
     console.error(error);
 
     res.status(500).json({
-      error: "Errore login",
+      error: "Login error",
     });
   }
 });
@@ -146,7 +146,7 @@ router.get("/profile", verifyToken, async (req, res) => {
 
     if (result.rows.length === 0) {
       return res.status(404).json({
-        error: "Utente non trovato",
+        error: "User not found",
       });
     }
 
@@ -155,7 +155,7 @@ router.get("/profile", verifyToken, async (req, res) => {
     console.error(error);
 
     res.status(500).json({
-      error: "Errore recupero profilo",
+      error: "Profile retrieval error",
     });
   }
 });
