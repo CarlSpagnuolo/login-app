@@ -3,6 +3,7 @@ import { loginUser } from "../services/authService";
 import { useNavigate, Link } from "react-router-dom";
 import CyberBackground from "../components/CyberBackground";
 import AudioToggle from "../components/AudioToggle";
+import HomeToggle from "../components/HomeToggle";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -68,6 +69,7 @@ before:to-fuchsia-500/5
 before:pointer-events-none
   "
         >
+          <HomeToggle />
           <AudioToggle />
           <h1
             className="
