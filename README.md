@@ -1,20 +1,23 @@
 # Authentication App
 
-Questo progetto è una web application full-stack sviluppata a scopo didattico e formativo per approfondire lo sviluppo backend, mantenendo un frontend moderno realizzato con React. L'obiettivo principale è stato comprendere il funzionamento dell'autenticazione degli utenti, la gestione di un database relazionale e la comunicazione tra client e server.
+This project is a **personal full-stack web application** developed independently for educational purposes to strengthen my backend development skills while expanding my frontend experience.
 
-## Obiettivo del progetto
+The main goal of this project was to understand how a complete authentication system works, including user registration, login, password security, database management, and communication between the frontend and backend through REST APIs.
 
-L'obiettivo del progetto era:
+## Project Goals
 
-* Approfondire lo sviluppo backend con Node.js ed Express.
-* Implementare un sistema di registrazione e autenticazione degli utenti.
-* Gestire la sicurezza delle password tramite hashing con bcrypt.
-* Utilizzare JSON Web Token (JWT) per proteggere le API.
-* Integrare un database PostgreSQL per la gestione dei dati.
-* Consolidare lo sviluppo frontend con React, TypeScript e Tailwind CSS.
-* Comprendere la comunicazione tra frontend e backend attraverso API REST.
+The objectives of this project were:
 
-## Tecnologie utilizzate
+* Deepen my knowledge of backend development using Node.js and Express.js.
+* Build a complete user authentication system from scratch.
+* Secure user passwords using bcrypt.
+* Implement JWT-based authentication and protected routes.
+* Manage user data with a PostgreSQL database.
+* Strengthen my frontend skills using React, TypeScript, JavaScript and Tailwind CSS.
+* Understand the interaction between frontend and backend through REST APIs.
+* Gain experience developing and organizing a real-world full-stack application independently.
+
+## Technologies Used
 
 ### Frontend
 
@@ -38,9 +41,16 @@ L'obiettivo del progetto era:
 * dotenv
 * CORS
 
-### Strumenti
+### Development Tools
 
 * Git
 * GitHub
 * ESLint
 * npm
+
+## Author
+
+Created and developed independently by Carlo Spagnuolo
+
+GitHub: https://github.com/CarlSpagnuolo
+LinkedIn: https://www.linkedin.com/in/carlo-spagnuolo-3958703b1/
